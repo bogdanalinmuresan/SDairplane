@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Airplane {
 
-    private static String status = "";
-    private static int ID = 0;
-    private static ArrayList<Airplane> planes = new ArrayList<>();
+    private  String status = "";
+    private  int ID = 0;
+    private  ArrayList<Airplane> planes = new ArrayList<>();
 
     public Airplane(String status, int ID){
         this.status = status;
@@ -30,14 +30,22 @@ public class Airplane {
 
         return null;
     }
-
-    public static void main(String [] args){
+    public void createPlanes(){
         for(int i=0;i<12;i++){
             status = randomStatus();
             planes.add(new Airplane(status,i));
+        }
+    }
+
+    public static void main(String [] args){
+        String status = "";
+        int ID = 0;
+        Airplane airplane  = new Airplane(status,ID);
+        airplane.createPlanes();
+        for(int i=0;i<12;i++){
+            System.out.println("ID: "+airplane.getPlanes().get(i).ID+" -- Status: "+airplane.getPlanes().get(i).status);
 
         }
-
     }
 }
 
