@@ -1,8 +1,6 @@
 public interface Track {
 
-      String status = "";
-      String name = "";
-
+      public String doAction(Airplane airplane);
 
 
 }

@@ -5,11 +5,30 @@ public class Airplane {
     private  String status = "";
     private  int ID = 0;
     private  ArrayList<Airplane> planes = new ArrayList<>();
+    private Track track;
+
+    public Track getTrack(){
+        return this.track;
+    }
+
+    public void setTrack(final Track track){
+        this.track=track;
+    }
+
+    public String getStatus(){
+        return this.status;
+    }
+
+    public void setStatus(String status){
+        this.status=status;
+    }
 
     public Airplane(String status, int ID){
         this.status = status;
         this.ID = ID;
     }
+
+
 
     public ArrayList<Airplane> getPlanes(){
         return this.planes;
