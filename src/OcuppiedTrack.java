@@ -4,8 +4,9 @@ public class OcuppiedTrack implements Track {
     Airplane airplane = null;
 
     @Override
-    public String doAction(Airplane airplane) {
-        return status;
+    public void doAction(Airplane airplane) {
+        airplane.setTrack(new FreeTrack());
+
     }
 
 }

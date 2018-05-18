@@ -28,6 +28,10 @@ public class Airplane {
         this.ID = ID;
     }
 
+    public void needATrack(){
+        this.track.doAction(this);
+    }
+
 
 
     public ArrayList<Airplane> getPlanes(){

@@ -1,6 +1,6 @@
 public interface Track {
 
-      public String doAction(Airplane airplane);
+      public void doAction(Airplane airplane);
 
 
 }
