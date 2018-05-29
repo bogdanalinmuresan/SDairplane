@@ -1,42 +1,18 @@
-import java.util.ArrayList;
-
 public class Airplane {
+    TrackContext trackContext;
+    String status="";
+    int id;
 
-    private  String status = "";
-    private  int ID = 0;
-    private  ArrayList<Airplane> planes = new ArrayList<>();
-    private Track track;
-
-    public Track getTrack(){
-        return this.track;
+    public Airplane(TrackContext trackContext){
+        this.trackContext=trackContext;
+        this.status=randomStatus();
+        this.id=(int)Math.round(Math.random()*10);
     }
 
-    public void setTrack(final Track track){
-        this.track=track;
+    public void wantToPlane(){
+
     }
 
-    public String getStatus(){
-        return this.status;
-    }
-
-    public void setStatus(String status){
-        this.status=status;
-    }
-
-    public Airplane(String status, int ID){
-        this.status = status;
-        this.ID = ID;
-    }
-
-    public void needATrack(){
-        this.track.doAction(this);
-    }
-
-
-
-    public ArrayList<Airplane> getPlanes(){
-        return this.planes;
-    }
     public static String randomStatus(){
         int random = (int) Math.round(Math.random());
         if(random == 1){
@@ -45,40 +21,6 @@ public class Airplane {
             return "LANDING";
         }
     }
-    public ArrayList<Airplane> landAirplane(){
 
-        return planes;
-    }
-    public String[] takeOffAirplane(){
 
-        return null;
-    }
-    public void createPlanes(){
-        for(int i=0;i<12;i++){
-            status = randomStatus();
-            planes.add(new Airplane(status,i));
-        }
-    }
-
-    public static void main(String [] args){
-        String status = "";
-        int ID = 0;
-        Airplane airplane  = new Airplane(status,ID);
-        airplane.createPlanes();
-        for(int i=0;i<12;i++){
-            System.out.println("ID: "+airplane.getPlanes().get(i).ID+" -- Status: "+airplane.getPlanes().get(i).status);
-
-        }
-    }
 }
-
-
-
-/*        |   |   |   |
-        |   |   |   |
-        |   |   |   |
-        |   |   |   |
-        |   |   |   |
-                            Queu - Y Y Y Y Y Y
-*/
-
