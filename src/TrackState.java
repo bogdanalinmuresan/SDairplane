@@ -1,6 +1,4 @@
 public interface TrackState {
 
-      String status = "";
-
-      public void putAirplaneInTrack  (TrackContext trackContext);
+    public boolean putAirplaneInTrack(Airplane airplane,TrackContext track);
 }

@@ -1,16 +1,20 @@
 public class Airplane {
-    TrackContext trackContext;
+    //TrackContext trackContext;
     String status="";
     int id;
 
-    public Airplane(TrackContext trackContext){
-        this.trackContext=trackContext;
+    public Airplane(){
         this.status=randomStatus();
-        this.id=(int)Math.round(Math.random()*10);
+        for(int i=0;i<10;i++){
+            this.id=i;
+        }
+
     }
 
     public void wantToPlane(){
-
+        //TrackContext trackContext = new TrackContext();
+        //Airplane airplane = new Airplane(trackContext);
+       // trackContext.wantToPlane(airplane);
     }
 
     public static String randomStatus(){
@@ -18,7 +22,7 @@ public class Airplane {
         if(random == 1){
             return "TAKEOFF";
         }else{
-            return "LANDING";
+            return "LANDED";
         }
     }
 
