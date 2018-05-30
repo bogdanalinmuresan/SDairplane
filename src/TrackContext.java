@@ -1,4 +1,5 @@
 import javax.sound.midi.Track;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Timer;
@@ -17,24 +18,6 @@ public class TrackContext {
 
     }
 
-    /*public TrackContext wantToPlane(Airplane airplane,TrackContext track){
-        String status = "";
-        try{
-
-            //track.putAirplaneInTrack(this);
-            if(trackState.putAirplaneInTrack(this)){
-                status = "LANDED on Track1";
-                return status;
-            }else{
-
-            status = "This track is occupied";
-            return status;
-            }
-        }catch (Exception e){
-            return null;
-        }
-    }*/
-
     public TrackState getTrack() {
         return trackState;
     }
@@ -43,45 +26,52 @@ public class TrackContext {
         this.trackState = trackState;
     }
 
-
-    public static void main(String [] args){
-
-
-        TrackState State = new FreeTrack();
-
-
-        TrackContext track1 = new TrackContext(1);
-        TrackContext track2 = new TrackContext(2);
-        TrackContext track3 = new TrackContext(3);
-
-        Airplane airplane;
-        ArrayList<Airplane> planes= new ArrayList<>();
-
-        for(int i=0;i<10;i++){
-            airplane = new Airplane();
-            planes.add(i,airplane);
-        }
-
-        int count=0;
-        while(count <10) {
-
-            //State.putAirplaneInTrack(planes.get(count),track1);
-            if(State.putAirplaneInTrack(planes.get(count),track1)){
-                count++;
-            }else{
-                //State.putAirplaneInTrack(planes.get(count),track2);
-                if(State.putAirplaneInTrack(planes.get(count),track2)){
-                    count++;
-                }else{
-                    //State.putAirplaneInTrack(planes.get(count),track3);
-                    if(State.putAirplaneInTrack(planes.get(count),track3)){
-                        count++;
-                    }
-                }
-            }
-
-        }
+    public int getID() {
+        return ID;
     }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+     /*public static void main(String [] args){
+
+      if(track1.getTrack() instanceof FreeTrack){
+            if(freeState.putAirplaneInTrack(landingPlanes.get(count),track1)){
+                System.out.println("Landed the airplane-"+landingPlanes.get(count).ID+" into track-"+track1.getID());
+                landingPlanes.remove(count);
+                count++;
+            }
+        }else{
+            if(occupiedState.putAirplaneInTrack(takingOffPlanes.get(count),track1)){
+                System.out.println("Landed the airplane-"+takingOffPlanes.get(count).ID+" into track-"+track1.getID());
+                count++;
+            }
+        }
+        if(track2.getTrack() instanceof FreeTrack){
+            if(freeState.putAirplaneInTrack(landingPlanes.get(count),track2)){
+                System.out.println("Landed the airplane-"+landingPlanes.get(count).ID+" into track-"+track2.getID());
+                count++;
+            }
+        }else{
+            if(occupiedState.putAirplaneInTrack(takingOffPlanes.get(count),track2)){
+                System.out.println("Landed the airplane-"+takingOffPlanes.get(count).ID+" into track-"+track2.getID());
+                count++;
+            }
+        }
+        if(track3.getTrack() instanceof FreeTrack){
+            if(freeState.putAirplaneInTrack(landingPlanes.get(count),track3)){
+                System.out.println("Landed the airplane-"+landingPlanes.get(count).ID+" into track-"+track3.getID());
+                count++;
+            }
+        }else{
+            if(occupiedState.putAirplaneInTrack(takingOffPlanes.get(count),track3)){
+                System.out.println("Landed the airplane-"+takingOffPlanes.get(count).ID+" into track-"+track3.getID());
+                count++;
+            }
+        }
+
+    }*/
 
 
 }

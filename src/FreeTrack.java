@@ -4,15 +4,21 @@ public class FreeTrack implements TrackState{
 
 
     @Override
-    public boolean putAirplaneInTrack(Airplane airplane, TrackContext trackContext) {
+    public String putAirplaneInTrack(Airplane airplane, TrackContext trackContext) {
 
         if (trackContext.getTrack()!=null){
             if (trackContext.getTrack() instanceof FreeTrack){
                 trackContext.setTrack(new OcuppiedTrack());
-                airplane.status= "LANDED";
-                return true;
+                if(airplane.status == "TAKEOFF"){
+                    airplane.status= "TAKEOFF";
+                    System.out.println("Airplane-"+airplane.ID+" is taking off from track-"+trackContext.getID());
+                }else{
+                    airplane.status= "LANDED";
+                    System.out.println("Airplane-"+airplane.ID+" is landing from track-"+trackContext.getID());
+                }
+                return airplane.status;
             }
-        }return false;
+        }return airplane.status;
 
         /*if (trackContext.getTrack2()!=null){
             if (trackContext.getTrack2() instanceof FreeTrack){

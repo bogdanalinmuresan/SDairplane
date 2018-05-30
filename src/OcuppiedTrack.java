@@ -1,13 +1,14 @@
 public class OcuppiedTrack implements TrackState {
     @Override
-    public boolean putAirplaneInTrack(Airplane airplane, TrackContext trackContext) {
-       if(airplane.status != "TAKEOFF") {
+    public String putAirplaneInTrack(Airplane airplane, TrackContext trackContext) {
+       if(airplane.status != "LANDED") {
 
             if (trackContext.getTrack() != null) {
                if (trackContext.getTrack() instanceof OcuppiedTrack) {
                    trackContext.setTrack(new FreeTrack());
                    airplane.status = "TAKEOFF";
-                   return false;
+                   System.out.println("Airplane-"+airplane.ID+" has take off");
+                   return airplane.status;
                }
            }
        }
@@ -24,7 +25,7 @@ public class OcuppiedTrack implements TrackState {
             }
         }*/
 
-        return false;
+        return airplane.status;
     }
 
 
