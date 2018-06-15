@@ -12,19 +12,6 @@ public class OcuppiedTrack implements TrackState {
                }
            }
        }
-        /*if (trackContext.getTrack2()!=null){
-            if (trackContext.getTrack2() instanceof OcuppiedTrack){
-                trackContext.setTrack2(new FreeTrack());
-                this.status2="OCCUPIED";
-            }
-        }
-        if (trackContext.getTrack3()!=null){
-            if (trackContext.getTrack3() instanceof OcuppiedTrack){
-                trackContext.setTrack3(new FreeTrack());
-                this.status3="OCCUPIED";
-            }
-        }*/
-
         return airplane.status;
     }
 
