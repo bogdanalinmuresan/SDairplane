@@ -20,17 +20,5 @@ public class FreeTrack implements TrackState{
             }
         }return airplane.status;
 
-        /*if (trackContext.getTrack2()!=null){
-            if (trackContext.getTrack2() instanceof FreeTrack){
-                trackContext.setTrack2(new OcuppiedTrack());
-                this.status2="FREE";
-            }
-        }
-        if (trackContext.getTrack3()!=null){
-            if (trackContext.getTrack3() instanceof FreeTrack){
-                trackContext.setTrack3(new OcuppiedTrack());
-                this.status3="FREE";
-            }
-        }*/
     }
 }
