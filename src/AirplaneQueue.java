@@ -31,8 +31,9 @@ public class AirplaneQueue {
         java.util.Queue<Airplane> takingOffPlanes = new LinkedList<>();
 
         for (Airplane airplane: allAirplane) {
-            if(airplane.status == "TAKEOFF")
+            if(airplane.status == "TAKEOFF"){
                 takingOffPlanes.add(airplane);
+            }
         }
         return takingOffPlanes;
     }

@@ -6,25 +6,12 @@ import java.util.Queue;
 
 
 public class DrawTracks {
+    TrackContext track1 = new TrackContext(1);
+    TrackContext track2 = new TrackContext(2);
+    TrackContext track3 = new TrackContext(3);
 
 
-public static String availabilityTrack(Airplane airplane, TrackContext track){
-        if(track.getTrack().putAirplaneInTrack(airplane,track) == "TAKEOFF") {
-            return "GREEN";
-        }
-        else{
-            return "RED";
-        }
-}
 public void createInterface(Queue<Airplane> takeoffAirplanes,Queue<Airplane> landedAirplanes){
-
-        TrackState freeState = new FreeTrack();
-        TrackState occupiedState = new OcuppiedTrack();
-
-
-        TrackContext track1 = new TrackContext(1);
-        TrackContext track2 = new TrackContext(2);
-        TrackContext track3 = new TrackContext(3);
 
         JFrame f=new JFrame();//creating instance of JFrame
 
@@ -71,19 +58,23 @@ public void createInterface(Queue<Airplane> takeoffAirplanes,Queue<Airplane> lan
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(track1.getTrack() instanceof FreeTrack){
-                    availabilityTrack(landedAirplanes.poll(),track1);
-                    num1.setBackground(Color.RED);
-                }else{
-                    if(track2.getTrack() instanceof FreeTrack){
-                        availabilityTrack(landedAirplanes.poll(),track2);
-                        num2.setBackground(Color.RED);
+                if(!landedAirplanes.isEmpty()){
+                    if(track1.getTrack() instanceof FreeTrack){
+                        track1.getTrack().putAirplaneInTrack(landedAirplanes.poll(),track1);
+                        num1.setBackground(Color.RED);
                     }else{
-                        if(track3.getTrack() instanceof FreeTrack){
-                            availabilityTrack(landedAirplanes.poll(),track3);
-                            num3.setBackground(Color.RED);
+                        if(track2.getTrack() instanceof FreeTrack){
+                            track2.getTrack().putAirplaneInTrack(landedAirplanes.poll(),track2);
+                            num2.setBackground(Color.RED);
+                        }else{
+                            if(track3.getTrack() instanceof FreeTrack){
+                                track3.getTrack().putAirplaneInTrack(landedAirplanes.poll(),track3);
+                                num3.setBackground(Color.RED);
+                            }
                         }
                     }
+                }else{
+                    System.out.println("This queue is empty.");
                 }
             }
         });
@@ -93,21 +84,25 @@ public void createInterface(Queue<Airplane> takeoffAirplanes,Queue<Airplane> lan
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(track1.getTrack() instanceof FreeTrack){
-                    availabilityTrack(takeoffAirplanes.poll(),track1);
-                    num1.setBackground(Color.RED);
-                }else{
-                    if(track2.getTrack() instanceof FreeTrack){
-                        availabilityTrack(takeoffAirplanes.poll(),track2);
-                        num2.setBackground(Color.RED);
-
+                if(!takeoffAirplanes.isEmpty()){
+                    if(track1.getTrack() instanceof FreeTrack){
+                        track1.getTrack().putAirplaneInTrack(takeoffAirplanes.poll(),track1);
+                        num1.setBackground(Color.RED);
                     }else{
-                        if(track3.getTrack() instanceof FreeTrack){
-                            availabilityTrack(takeoffAirplanes.poll(),track3);
-                            num3.setBackground(Color.RED);
+                        if(track2.getTrack() instanceof FreeTrack){
+                            track2.getTrack().putAirplaneInTrack(takeoffAirplanes.poll(),track2);
+                            num2.setBackground(Color.RED);
 
+                        }else{
+                            if(track3.getTrack() instanceof FreeTrack){
+                                track3.getTrack().putAirplaneInTrack(takeoffAirplanes.poll(),track3);
+                                num3.setBackground(Color.RED);
+
+                            }
                         }
                     }
+                }else{
+                    System.out.println("This queue is empty.");
                 }
             }
         });
