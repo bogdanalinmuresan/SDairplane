@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Airplane {
     //TrackContext trackContext;
     String status="";
@@ -15,6 +17,18 @@ public class Airplane {
         }else{
             return "LANDED";
         }
+    }
+
+    public static ArrayList<Airplane> creationAllAirplanes(){
+        Airplane airplane;
+        ArrayList<Airplane> planes = new ArrayList<>();
+
+        for(int i=0;i<20;i++){
+            airplane = new Airplane(i);
+
+            planes.add(i,airplane);
+
+        }   return planes;
     }
 
 
