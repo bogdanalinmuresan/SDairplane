@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class AirplaneQueue {
 
@@ -15,9 +16,9 @@ public class AirplaneQueue {
         }   return planes;
     }
 
-   public static java.util.Queue<Airplane> createLandAirplanes(ArrayList<Airplane> allAirplane){
+   public static Queue<Airplane> createLandAirplanes(ArrayList<Airplane> allAirplane){
 
-        java.util.Queue<Airplane> landingPlanes= new LinkedList<>();
+        Queue<Airplane> landingPlanes= new LinkedList<>();
 
         for (Airplane airplane: allAirplane) {
             if(airplane.status == "LANDED"){
@@ -27,8 +28,8 @@ public class AirplaneQueue {
         return landingPlanes;
     }
 
-    public static java.util.Queue<Airplane> createTakeAirplanes(ArrayList<Airplane> allAirplane){
-        java.util.Queue<Airplane> takingOffPlanes = new LinkedList<>();
+    public static Queue<Airplane> createTakeAirplanes(ArrayList<Airplane> allAirplane){
+        Queue<Airplane> takingOffPlanes = new LinkedList<>();
 
         for (Airplane airplane: allAirplane) {
             if(airplane.status == "TAKEOFF"){
